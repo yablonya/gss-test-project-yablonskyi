@@ -1,0 +1,11 @@
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inputGroupSideLabel {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
