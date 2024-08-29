@@ -40,3 +40,21 @@
 .inputLabelDisabled p {
   color: $gray-200;
 }
+
+.inputLabelDark {
+  p {
+    color: $gray-600;
+  }
+
+  .asterisk {
+    color: $error-red-dark;
+  }
+
+  div svg {
+    color: $gray-200;
+  }
+
+  &.inputLabelDisabled p {
+    color: $gray-300;
+  }
+}

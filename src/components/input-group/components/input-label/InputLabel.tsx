@@ -12,6 +12,7 @@ interface InputLabelProps {
 	infoText?: string;
 	size: InputSize;
 	disabled: boolean;
+	darkTheme?: boolean;
 }
 
 const InputLabel: FC<InputLabelProps> = (
@@ -20,13 +21,15 @@ const InputLabel: FC<InputLabelProps> = (
 		required,
 		infoText,
 		size,
-		disabled
+		disabled,
+		darkTheme = false,
 	}) => {
 	const prepInfoText = infoText?.trim();
 	
 	const className = classNames('inputLabel', {
 		inputLabelLarge: size === InputSize.LARGE ||  size === InputSize.EXTRA_LARGE,
 		inputLabelDisabled: disabled,
+		inputLabelDark: darkTheme,
 	});
 	
 	return (

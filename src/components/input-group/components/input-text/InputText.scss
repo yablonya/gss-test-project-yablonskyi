@@ -80,6 +80,16 @@
   }
 }
 
+.inputTextLarge input,
+.inputTextXLarge input {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.inputTextXLarge input {
+  padding: 12px;
+}
+
 .inputTextSingleAfterIcon input {
   padding-right: 40px;
 }
@@ -109,16 +119,6 @@
     width: 12px;
     height: 12px;
   }
-}
-
-.inputTextLarge input,
-.inputTextXLarge input {
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.inputTextXLarge input {
-  padding: 12px;
 }
 
 .inputTextError input {
@@ -165,7 +165,61 @@
   color: $error-red;
 }
 
-.inputText input:disabled ~ .iconContainer svg {
+.inputText input:disabled ~ .iconContainer svg,
+input:disabled ~ .afterIcons .iconContainer svg {
   color: $gray-400;
+}
+
+.inputTextDark {
+  input {
+    border-color: $gray-100;
+    color: $gray-600;
+    background-color: $gray-10;
+
+    &:focus {
+      border-color: $active-border-dark;
+      caret-color: $gray-600;
+    }
+  }
+
+  .iconContainer svg {
+    color: $gray-300;
+  }
+
+  &.inputTextError input {
+    border-color: $error-border-dark;
+    box-shadow: 0 0 0 0 $error-shadow;
+
+    &:focus {
+      border-color: $error-border-dark;
+      box-shadow: 0 0 0 4px $error-shadow;
+    }
+  }
+
+  &.inputTextError .iconContainer svg {
+    color: $error-red-dark;
+  }
+
+  &.inputTextQuiet input {
+    box-shadow: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  input:disabled {
+    border-color: $gray-100;
+    color: $gray-50;
+
+    &::placeholder {
+      color: $gray-50;
+    }
+  }
+
+  input:disabled ~ .iconContainer svg,
+  input:disabled ~ .afterIcons .iconContainer svg {
+    color: $gray-200;
+  }
 }
 

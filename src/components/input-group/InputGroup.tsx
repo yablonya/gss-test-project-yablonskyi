@@ -41,6 +41,7 @@ interface InputGroupProps extends Omit<ComponentPropsWithoutRef<'input'>, 'size'
 	iconBefore?: ReactNode;
 	iconAfterFirst?: ReactNode;
 	iconAfterSecond?: ReactNode;
+	darkTheme?: boolean;
 }
 
 const InputGroup: FC<InputGroupProps> = (
@@ -59,6 +60,7 @@ const InputGroup: FC<InputGroupProps> = (
 		iconBefore = null,
 		iconAfterFirst = null,
 		iconAfterSecond = null,
+		darkTheme = false,
 		...rest
 	}) => {
 	const className = classNames('inputGroup', { inputGroupSideLabel: sideLabel });
@@ -71,6 +73,7 @@ const InputGroup: FC<InputGroupProps> = (
 				infoText={infoText}
 				size={size}
 				disabled={disabled}
+				darkTheme={darkTheme}
 			/>
 			<InputText
 				type={type}
@@ -82,6 +85,7 @@ const InputGroup: FC<InputGroupProps> = (
 				iconBefore={iconBefore}
 				iconAfterFirst={iconAfterFirst}
 				iconAfterSecond={iconAfterSecond}
+				darkTheme={darkTheme}
 				{...rest}
 			/>
 			{helpText &&
@@ -90,6 +94,7 @@ const InputGroup: FC<InputGroupProps> = (
           size={size}
           disabled={disabled}
           isError={isError}
+          darkTheme={darkTheme}
         />
 			}
 		</div>

@@ -13,10 +13,22 @@
   line-height: 24px;
 }
 
+.inputAnnotationError {
+  color: $error-red;
+}
+
 .inputAnnotationDisabled {
   color: $gray-400;
 }
 
-.inputAnnotationError {
-  color: $error-red;
+.inputAnnotationDark {
+  color: $gray-300;
+
+  &.inputAnnotationError {
+    color: $error-border-dark;
+  }
+
+  &.inputAnnotationDisabled {
+    color: $gray-50;
+  }
 }

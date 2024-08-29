@@ -10,6 +10,7 @@ interface InputAnnotationProps {
 	size?: InputSize;
 	disabled?: boolean;
 	isError?: boolean;
+	darkTheme?: boolean;
 }
 
 const InputAnnotation: FC<InputAnnotationProps> = (
@@ -18,12 +19,14 @@ const InputAnnotation: FC<InputAnnotationProps> = (
 		size = InputSize.MEDIUM,
 		disabled = false,
 		isError = false,
+		darkTheme = false,
 	}) => {
 	const prepHelpText = helpText.trim();
 	const className = classNames('inputAnnotation', {
 		inputAnnotationLarge: size === InputSize.LARGE ||  size === InputSize.EXTRA_LARGE,
 		inputAnnotationDisabled: disabled,
 		inputAnnotationError: isError,
+		inputAnnotationDark: darkTheme
 	});
 	
 	return (

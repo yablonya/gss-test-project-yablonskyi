@@ -16,6 +16,7 @@ interface InputTextProps extends Omit<ComponentPropsWithoutRef<'input'>, 'size'>
 	iconBefore?: ReactNode;
 	iconAfterFirst?: ReactNode;
 	iconAfterSecond?: ReactNode;
+	darkTheme?: boolean;
 }
 
 const InputText: FC<InputTextProps> = ({
@@ -28,6 +29,7 @@ const InputText: FC<InputTextProps> = ({
 	iconBefore = null,
 	iconAfterFirst = null,
 	iconAfterSecond = null,
+	darkTheme = false,
 	...rest
 }) => {
 	
@@ -42,6 +44,7 @@ const InputText: FC<InputTextProps> = ({
 		inputTextQuiet: inputStyle === InputStyle.QUIET,
 		inputTextSingleAfterIcon: iconAfterFirst && !iconAfterSecond || !iconAfterFirst && iconAfterSecond, // New class for one after icon
 		inputTextDoubleAfterIcon: iconAfterFirst && iconAfterSecond,
+		inputTextDark: darkTheme
 	});
 
 	return (
