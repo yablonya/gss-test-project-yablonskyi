@@ -1,23 +1,28 @@
+@import "../src/styles/partials/theme";
+
 .inputText {
   position: relative;
+  flex: 1;
+  min-width: 120px;
 
   input {
     border-radius: 4px;
     width: 100%;
-    border: 1px solid #D1D1D6;
+    border: 1px solid $gray-400;
     padding: 8px 12px;
     outline: none;
-    box-shadow: 0 0 0 0 #2E90FA3D;
+    box-shadow: 0 0 0 0 $active-shadow;
     transition: box-shadow 0.1s ease;
     font-size: 12px;
     line-height: 20px;
-    color: #1A1A1E;
+    color: $gray-25;
     text-overflow: ellipsis;
+    background-color: $white;
 
     &:focus {
-      border-color: #84CAFF;
-      box-shadow: 0 0 0 4px #2E90FA3D;
-      caret-color: #1A1A1E;
+      border-color: $active-border;
+      box-shadow: 0 0 0 4px $active-shadow;
+      caret-color: $gray-25;
     }
 
     &::placeholder {
@@ -25,11 +30,12 @@
     }
 
     &:disabled {
-      border-color: #D1D1D6;
-      color: #D1D1D6;
+      border-color: $gray-400;
+      color: $gray-400;
+      cursor: not-allowed;
 
       &::placeholder {
-        color: #D1D1D6;
+        color: $gray-400;
       }
     }
 
@@ -42,29 +48,44 @@
   .iconContainer {
     width: 22px;
     height: 22px;
-    position: absolute;
-    top: calc(50% - 11px);
+    cursor: pointer;
 
     svg {
-      color: #A0A0AB;
+      color: $gray-300;
     }
   }
 
-  input + .iconContainer {
+  .iconBefore,
+  .afterIcons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .iconBefore {
     left: 12px;
   }
 
-  .iconAfter {
-    right: 36px;
-  }
-
-  .iconContainer:last-child {
-    width: 16px;
-    height: 16px;
-    top: calc(50% - 8px);
+  .afterIcons {
+    height: 22px;
     right: 12px;
     display: flex;
+    align-items: center;
+    gap: 4px;
   }
+
+  .iconAfterSecond {
+    padding: 3px;
+    display: flex;
+  }
+}
+
+.inputTextSingleAfterIcon input {
+  padding-right: 40px;
+}
+
+.inputTextDoubleAfterIcon input {
+  padding-right: 62px;
 }
 
 .inputTextXSmall {
@@ -75,66 +96,76 @@
   .iconContainer {
     width: 16px;
     height: 16px;
-    top: calc(50% - 8px);
   }
 
-  .iconContainer:last-child {
+  .iconBefore,
+  .afterIcons {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .iconAfterSecond {
+    padding: 0;
     width: 12px;
     height: 12px;
-    top: calc(50% - 6px);
   }
 }
 
-.inputTextLarge input {
+.inputTextLarge input,
+.inputTextXLarge input {
   font-size: 14px;
   line-height: 24px;
 }
 
 .inputTextXLarge input {
-  font-size: 14px;
-  line-height: 24px;
   padding: 12px;
+}
+
+.inputTextError input {
+  border-color: $error-border;
+  box-shadow: 0 0 0 0 $error-shadow;
+
+  &:focus {
+    border-color: $error-border;
+    box-shadow: 0 0 0 4px $error-shadow;
+  }
+}
+
+.inputTextQuiet input {
+  border: none;
+  box-shadow: none;
+
+  &:focus {
+    border-color: transparent;
+    box-shadow: none;
+  }
 }
 
 .inputTextIconBefore input {
   padding-left: 40px;
 }
 
-.inputTextIconAfterFirst input {
-  padding-right: 40px;
-}
-
-.inputTextIconAfterSecond input {
-  padding-right: 62px;
-}
-
 .inputTextXSmall.inputTextIconBefore input {
   padding-left: 30px;
 }
 
-.inputTextXSmall.inputTextIconAfterFirst input {
+.inputTextSmall .afterIcons {
+  height: 16px;
+}
+
+.inputTextXSmall.inputTextSingleAfterIcon input {
   padding-right: 30px;
 }
 
-.inputTextXSmall.inputTextIconAfterSecond input {
-  padding-right: 52px;
+.inputTextXSmall.inputTextDoubleAfterIcon input {
+  padding-right: 48px;
 }
 
-.inputTextError input {
-  border-color: #FDA29B;
-  box-shadow: 0 0 0 0 #F044383D;
-
-  &:focus {
-    border-color: #FDA29B;
-    box-shadow: 0 0 0 4px #F044383D;
-  }
-}
-
-.inputTextError.inputTextIconBefore svg,
-.inputTextError.inputTextIconAfterFirst svg {
-  color: #D92D20;
+.inputTextError .iconContainer svg {
+  color: $error-red;
 }
 
 .inputText input:disabled ~ .iconContainer svg {
-  color: #D1D1D6;
+  color: $gray-400;
 }
+

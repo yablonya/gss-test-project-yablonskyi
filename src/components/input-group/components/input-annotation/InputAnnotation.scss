@@ -1,8 +1,10 @@
+@import "../src/styles/partials/theme";
+
 .inputAnnotation {
   font-size: 12px;
   font-weight: 400;
   line-height: 20px;
-  color: #51525C;
+  color: $gray-100;
 }
 
 .inputAnnotationLarge {
@@ -12,9 +14,9 @@
 }
 
 .inputAnnotationDisabled {
-  color: #D1D1D6;
+  color: $gray-400;
 }
 
 .inputAnnotationError {
-  color: #D92D20;
+  color: $error-red;
 }

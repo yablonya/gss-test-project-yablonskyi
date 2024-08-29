@@ -1,8 +1,8 @@
-import {FC} from "react";
+import {FC} from 'react';
 
-import InfoIcon from "@/components/icons/InfoIcon";
-import {InputSize} from "@/components/input-group/InputGroup";
-import classNames from "classnames";
+import InfoIcon from '../../../icons/InfoIcon';
+import {InputSize} from '../../InputGroup';
+import classNames from 'classnames';
 
 import './InputLabel.scss';
 
@@ -30,11 +30,11 @@ const InputLabel: FC<InputLabelProps> = (
 	});
 	
 	return (
-		<div className={className}>
+		<label className={className}>
 			<p className='labelText'>{label}</p>
 			{!disabled && required && <p className='asterisk'>*</p>}
 			{prepInfoText && <div title={prepInfoText}><InfoIcon/></div>}
-		</div>
+		</label>
 	);
 };
 

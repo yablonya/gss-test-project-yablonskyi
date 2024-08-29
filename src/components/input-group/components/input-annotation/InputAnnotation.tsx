@@ -1,6 +1,6 @@
-import {FC} from "react";
+import {FC} from 'react';
 
-import {InputSize} from "@/components/input-group/InputGroup";
+import {InputSize} from "../../InputGroup";
 import classNames from "classnames";
 
 import './InputAnnotation.scss'
@@ -19,6 +19,7 @@ const InputAnnotation: FC<InputAnnotationProps> = (
 		disabled = false,
 		isError = false,
 	}) => {
+	const prepHelpText = helpText.trim();
 	const className = classNames('inputAnnotation', {
 		inputAnnotationLarge: size === InputSize.LARGE ||  size === InputSize.EXTRA_LARGE,
 		inputAnnotationDisabled: disabled,
@@ -26,7 +27,7 @@ const InputAnnotation: FC<InputAnnotationProps> = (
 	});
 	
 	return (
-		<p className={className}>{helpText}</p>
+		<p className={className}>{prepHelpText}</p>
 	);
 };
 

@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import InputLabel from './InputLabel';
-import {InputSize} from "@/components/input-group/InputGroup";
+import {InputSize} from '../../InputGroup';
 
-const meta: Meta<typeof  InputLabel> = {
+const meta: Meta<typeof InputLabel> = {
 	title: 'Components/InputLabel',
 	component: InputLabel,
 	parameters: {
@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
 	args: {
-		label: 'Check',
+		label: 'Label',
 		required: true,
 		infoText: 'Some tips',
 		size: InputSize.MEDIUM,
@@ -27,7 +27,7 @@ export const Base: Story = {
 
 export const Large: Story = {
 	args: {
-		label: 'Check',
+		label: 'Label',
 		required: true,
 		infoText: 'Some tips',
 		size: InputSize.EXTRA_LARGE,

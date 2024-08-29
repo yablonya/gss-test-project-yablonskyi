@@ -1,3 +1,5 @@
+@import "../src/styles/partials/theme";
+
 .inputLabel {
   display: flex;
   align-items: center;
@@ -7,17 +9,17 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
-    color: #1A1A1E;
+    color: $gray-25;
   }
 
   .asterisk {
-    color: red;
+    color: $error-red;
   }
 
   div svg {
     width: 12px;
     height: 12px;
-    color: #A0A0A0;
+    color: $gray-300;
     cursor: pointer;
   }
 }
@@ -26,7 +28,7 @@
   p {
     font-size: 14px;
     line-height: 24px;
-    color: #1A1A1E;
+    color: $gray-25;
   }
 
   div svg {
@@ -36,5 +38,5 @@
 }
 
 .inputLabelDisabled p {
-  color: #70707B;
+  color: $gray-200;
 }

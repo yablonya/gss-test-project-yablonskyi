@@ -1,29 +1,34 @@
-import './InputText.scss'
-import {InputSize, InputType} from "@/components/input-group/InputGroup";
-import classNames from 'classnames';
-import {FC} from "react";
-import * as React from "react";
+import {ComponentPropsWithoutRef, FC, ReactNode} from 'react';
 
-interface InputTextProps {
+import {InputSize, InputStyle, InputType} from "../../InputGroup";
+import classNames from 'classnames';
+
+import './InputText.scss'
+
+
+interface InputTextProps extends Omit<ComponentPropsWithoutRef<'input'>, 'size'> {
 	type?: InputType;
 	size?: InputSize;
+	inputStyle?: InputStyle;
 	placeholder?: string;
 	disabled?: boolean;
 	isError?: boolean;
-	iconBefore?: React.ReactNode;
-	iconAfterFirst?: React.ReactNode;
-	iconAfterSecond?: React.ReactNode;
+	iconBefore?: ReactNode;
+	iconAfterFirst?: ReactNode;
+	iconAfterSecond?: ReactNode;
 }
 
 const InputText: FC<InputTextProps> = ({
 	type = InputType.DEFAULT,
 	size = InputSize.MEDIUM,
+	inputStyle = InputStyle.NORMAL,
 	placeholder = '',
 	disabled = false,
 	isError = false,
 	iconBefore = null,
 	iconAfterFirst = null,
 	iconAfterSecond = null,
+	...rest
 }) => {
 	
 	const className = classNames('inputText', {
@@ -34,14 +39,19 @@ const InputText: FC<InputTextProps> = ({
 		inputTextIconAfterFirst: iconAfterFirst,
 		inputTextIconAfterSecond: iconAfterSecond,
 		inputTextError: isError,
+		inputTextQuiet: inputStyle === InputStyle.QUIET,
+		inputTextSingleAfterIcon: iconAfterFirst && !iconAfterSecond || !iconAfterFirst && iconAfterSecond, // New class for one after icon
+		inputTextDoubleAfterIcon: iconAfterFirst && iconAfterSecond,
 	});
 
 	return (
 		<div className={className}>
-			<input type={type} placeholder={placeholder} disabled={disabled}/>
-			{iconBefore && <div className='iconContainer'>{iconBefore}</div>}
-			{iconAfterFirst && <div className='iconContainer iconAfter'>{iconAfterFirst}</div>}
-			{iconAfterSecond && <div className='iconContainer'>{iconAfterSecond}</div>}
+			<input type={type} placeholder={placeholder} disabled={disabled} {...rest}/>
+			{iconBefore && <div className='iconContainer iconBefore'>{iconBefore}</div>}
+			<div className='afterIcons'>
+				{iconAfterFirst && <div className='iconContainer iconAfterFirst'>{iconAfterFirst}</div>}
+				{iconAfterSecond && <div className='iconContainer iconAfterSecond'>{iconAfterSecond}</div>}
+			</div>
 		</div>
 	);
 };

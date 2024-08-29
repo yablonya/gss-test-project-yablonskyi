@@ -1,11 +1,11 @@
-import {FC, ReactNode} from "react";
+import {ComponentPropsWithoutRef, FC, ReactNode} from 'react';
 
-import InputLabel from "@/components/input-group/components/input-label/InputLabel";
-import InputText from "@/components/input-group/components/input-text/InputText";
-import InputAnnotation from "@/components/input-group/components/input-annotation/InputAnnotation";
-import classNames from "classnames";
+import InputLabel from './components/input-label/InputLabel';
+import InputText from './components/input-text/InputText';
+import InputAnnotation from './components/input-annotation/InputAnnotation';
+import classNames from 'classnames';
 
-import '@/index.css';
+import '../../styles/index.scss';
 import './InputGroup.scss';
 
 export enum InputSize {
@@ -21,12 +21,18 @@ export enum InputType {
 	SEARCH = 'search',
 }
 
-interface InputGroupProps {
-	label: string,
+export enum InputStyle {
+	NORMAL = 'normal',
+	QUIET = 'quiet',
+}
+
+interface InputGroupProps extends Omit<ComponentPropsWithoutRef<'input'>, 'size'> {
+	label?: string,
 	required?: boolean;
 	infoText?: string;
 	size?: InputSize;
 	type?: InputType;
+	inputStyle?: InputStyle;
 	placeholder?: string;
 	disabled?: boolean;
 	isError?: boolean;
@@ -39,11 +45,12 @@ interface InputGroupProps {
 
 const InputGroup: FC<InputGroupProps> = (
 	{
-		label,
+		label = '',
 		required = false,
 		infoText = '',
 		size = InputSize.MEDIUM,
 		type = InputType.DEFAULT,
+		inputStyle = InputStyle.NORMAL,
 		placeholder = '',
 		disabled = false,
 		isError = false,
@@ -52,6 +59,7 @@ const InputGroup: FC<InputGroupProps> = (
 		iconBefore = null,
 		iconAfterFirst = null,
 		iconAfterSecond = null,
+		...rest
 	}) => {
 	const className = classNames('inputGroup', { inputGroupSideLabel: sideLabel });
 	
@@ -67,19 +75,23 @@ const InputGroup: FC<InputGroupProps> = (
 			<InputText
 				type={type}
 				size={size}
+				inputStyle={inputStyle}
 				placeholder={placeholder}
 				disabled={disabled}
 				isError={isError}
 				iconBefore={iconBefore}
 				iconAfterFirst={iconAfterFirst}
 				iconAfterSecond={iconAfterSecond}
+				{...rest}
 			/>
-			<InputAnnotation
-				helpText={helpText}
-				size={size}
-				disabled={disabled}
-				isError={isError}
-			/>
+			{helpText &&
+        <InputAnnotation
+          helpText={helpText}
+          size={size}
+          disabled={disabled}
+          isError={isError}
+        />
+			}
 		</div>
 	);
 };
