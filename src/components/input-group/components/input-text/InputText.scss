@@ -88,9 +88,11 @@
 .inputTextDisabled {
   border-color: var(--text-disabled);
   box-shadow: none;
+  cursor: not-allowed;
 
   input {
     color: var(--text-disabled);
+    cursor: not-allowed;
 
     &::placeholder {
       color: var(--text-disabled);
@@ -99,6 +101,7 @@
 
   .iconContainer svg {
     color: var(--text-disabled);
+    cursor: not-allowed;
   }
 }
 

@@ -29,8 +29,15 @@ const InputLabel: FC<InputLabelProps> = (
 	const className = classNames('inputLabel', {
 		inputLabelLarge: size === InputSize.LARGE ||  size === InputSize.EXTRA_LARGE,
 		inputLabelDisabled: disabled,
-		inputLabelDark: darkTheme,
 	});
+
+	if (darkTheme) {
+		document.body.classList.add('darkTheme');
+	} else {
+		if (document.body.classList.contains('darkTheme')) {
+			document.body.classList.remove('darkTheme');
+		}
+	}
 	
 	return (
 		<div className={className}>

@@ -26,8 +26,15 @@ const InputAnnotation: FC<InputAnnotationProps> = (
 		inputAnnotationLarge: size === InputSize.LARGE ||  size === InputSize.EXTRA_LARGE,
 		inputAnnotationDisabled: disabled,
 		inputAnnotationError: showError,
-		inputAnnotationDark: darkTheme
 	});
+
+	if (darkTheme) {
+		document.body.classList.add('darkTheme');
+	} else {
+		if (document.body.classList.contains('darkTheme')) {
+			document.body.classList.remove('darkTheme');
+		}
+	}
 	
 	return (
 		<p className={className}>{prepHelpText}</p>

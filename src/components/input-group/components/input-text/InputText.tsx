@@ -28,7 +28,6 @@ const InputText: FC<InputTextProps> = ({
 	darkTheme = false,
 	...rest
 }) => {
-	
 	const className = classNames('inputText', {
 		inputTextXSmall: size === InputSize.EXTRA_SMALL,
 		inputTextLarge: size === InputSize.LARGE,
@@ -36,8 +35,15 @@ const InputText: FC<InputTextProps> = ({
 		inputTextDisabled: disabled,
 		inputTextError: showError,
 		inputTextQuiet: inputStyle === 'quiet',
-		inputTextDark: darkTheme
 	});
+
+	if (darkTheme) {
+		document.body.classList.add('darkTheme');
+	} else {
+		if (document.body.classList.contains('darkTheme')) {
+			document.body.classList.remove('darkTheme');
+		}
+	}
 
 	return (
 		<div className={className}>

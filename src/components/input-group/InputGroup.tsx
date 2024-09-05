@@ -51,12 +51,15 @@ const InputGroup: FC<InputGroupProps> = (
 		...rest
 	}) => {
 	const className = classNames('inputGroup', { inputGroupSideLabel: sideLabel });
+
 	if (darkTheme) {
 		document.body.classList.add('darkTheme');
 	} else {
-		document.body.classList.remove('darkTheme');
+		if (document.body.classList.contains('darkTheme')) {
+			document.body.classList.remove('darkTheme');
+		}
 	}
-	
+
 	return (
 		<div className={className}>
 			<InputLabel

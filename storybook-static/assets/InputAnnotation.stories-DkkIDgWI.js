@@ -1,4 +1,4 @@
-import{b as p,a as m}from"./InputGroup-ee5gnVga.js";import"./index-DJO9vBfz.js";const l={title:"Components/InputAnnotation",component:p,parameters:{layout:"centered"},tags:["autodocs"]},e={args:{helpText:"Some useful information",size:m.MEDIUM}},o={args:{helpText:"Some useful information",size:m.LARGE}};var a,r,s;e.parameters={...e.parameters,docs:{...(a=e.parameters)==null?void 0:a.docs,source:{originalSource:`{
+import{b as p,a as m}from"./InputGroup-_ozIxHtH.js";import"./index-DJO9vBfz.js";const l={title:"Components/InputAnnotation",component:p,parameters:{layout:"centered"},tags:["autodocs"]},e={args:{helpText:"Some useful information",size:m.MEDIUM}},o={args:{helpText:"Some useful information",size:m.LARGE}};var a,r,s;e.parameters={...e.parameters,docs:{...(a=e.parameters)==null?void 0:a.docs,source:{originalSource:`{
   args: {
     helpText: 'Some useful information',
     size: InputSize.MEDIUM

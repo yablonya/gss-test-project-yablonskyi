@@ -19,11 +19,10 @@ const App = () => {
 				iconAfter={<SearchIcon/>}
 				value={inputValue}
 				onChange={handleChange}
-				disabled={true}
 				showError={true}
 				infoText={'Text'}
-				sideLabel={true}
 				helpText={'Skocndfj vuh uhfduhijsi8u88j8 er8 fje'}
+
 			/>
 			<h1>{inputValue}</h1>
 		</div>

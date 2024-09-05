@@ -1,4 +1,4 @@
-import{c as p,a as l}from"./InputGroup-ee5gnVga.js";import"./index-DJO9vBfz.js";const c={title:"Components/InputLabel",component:p,parameters:{layout:"centered"},tags:["autodocs"]},e={args:{label:"Label",required:!0,infoText:"Some tips",size:l.MEDIUM,disabled:!1}},a={args:{label:"Label",required:!0,infoText:"Some tips",size:l.EXTRA_LARGE,disabled:!1}};var r,s,t;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:`{
+import{c as p,a as l}from"./InputGroup-_ozIxHtH.js";import"./index-DJO9vBfz.js";const c={title:"Components/InputLabel",component:p,parameters:{layout:"centered"},tags:["autodocs"]},e={args:{label:"Label",required:!0,infoText:"Some tips",size:l.MEDIUM,disabled:!1}},a={args:{label:"Label",required:!0,infoText:"Some tips",size:l.EXTRA_LARGE,disabled:!1}};var r,s,t;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:`{
   args: {
     label: 'Label',
     required: true,
