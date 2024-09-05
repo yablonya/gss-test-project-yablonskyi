@@ -1,6 +1,32 @@
+@import "src/styles/partials/theme";
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
+}
+
+:root {
+  --background: #FFFFFF;
+  --text-primary: #1A1A1E;
+  --text-secondary: #51525C;
+  --text-tertiary: #70707B;
+  --text-quinary: #A0A0AB;
+  --text-disabled: #D1D1D6;
+  --active-border: #84CAFF;
+  --error-border: #FDA29B;
+  --error-red: #D92D20;
+}
+
+.darkTheme {
+  --background: #131316;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A0A0AB;
+  --text-tertiary: #A0A0AB;
+  --text-quinary: #70707B;
+  --text-disabled: #3F3F46;
+  --active-border: #53B1FD;
+  --error-border: #F97066;
+  --error-red: #F04438;
 }

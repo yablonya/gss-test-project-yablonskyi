@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from "@storybook/react";
-import {InputSize, InputStyle, InputType} from "../../InputGroup";
+import {InputSize} from "../../InputGroup";
 import InputText from "./InputText";
 import SearchIcon from "../../../icons/SearchIcon";
 import HelpIcon from "../../../icons/HelpIcon";
@@ -26,7 +26,7 @@ export const Base: Story = {
 
 export const SmallQuiet: Story = {
 	args: {
-		inputStyle: InputStyle.QUIET,
+		inputStyle: 'quiet',
 		size: InputSize.EXTRA_SMALL,
 		placeholder: 'Enter text...',
 	},
@@ -35,7 +35,7 @@ export const SmallQuiet: Story = {
 export const LargeErrorPassword: Story = {
 	args: {
 		size: InputSize.LARGE,
-		type: InputType.PASSWORD,
+		type: 'password',
 		placeholder: 'Enter text...',
 		isError: true
 	},
@@ -67,7 +67,7 @@ export const IconAfterSecond: Story = {
 	args: {
 		placeholder: 'Enter text...',
 		iconBefore: <SearchIcon />,
-		iconAfterSecond: <ShortKeyIcon />,
+		iconAfter: <HelpIcon />,
 	},
 }
 
@@ -76,7 +76,6 @@ export const AllIconsSmall: Story = {
 		placeholder: 'Enter text...',
 		size: InputSize.EXTRA_SMALL,
 		iconBefore: <SearchIcon />,
-		iconAfterFirst: <HelpIcon />,
-		iconAfterSecond: <ShortKeyIcon />,
+		iconAfter: <HelpIcon />,
 	},
 }

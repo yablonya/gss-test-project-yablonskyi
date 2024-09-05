@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import InputGroup, {InputSize, InputType} from './InputGroup';
+import InputGroup, {InputSize} from './InputGroup';
 import HelpIcon from "../icons/HelpIcon";
 import ShortKeyIcon from '../icons/ShortKeyIcon';
 import SearchIcon from '../icons/SearchIcon';
@@ -22,11 +22,10 @@ export const Small: Story = {
 		label: 'Check',
 		required: true,
 		infoText: '',
-		type: InputType.SEARCH,
+		type: 'search',
 		size: InputSize.EXTRA_SMALL,
 		iconBefore: <SearchIcon />,
-		iconAfterFirst: <HelpIcon />,
-		iconAfterSecond: <ShortKeyIcon />,
+		iconAfter: <HelpIcon />,
 	},
 };
 
@@ -43,13 +42,12 @@ export const Large: Story = {
 	args: {
 		label: 'Check',
 		required: true,
-		type: InputType.PASSWORD,
+		type: 'password',
 		infoText: '',
 		isError: true,
 		size: InputSize.LARGE,
 		iconBefore: <SearchIcon />,
-		iconAfterFirst: <HelpIcon />,
-		iconAfterSecond: <ShortKeyIcon />,
+		iconAfter: <HelpIcon />,
 	},
 };
 
@@ -60,7 +58,7 @@ export const ExtraLarge: Story = {
 		infoText: 'Some tips',
 		size: InputSize.EXTRA_LARGE,
 		iconBefore: <SearchIcon />,
-		iconAfterSecond: <ShortKeyIcon />,
+		iconAfter: <HelpIcon />,
 	},
 };
 
@@ -70,7 +68,6 @@ export const DarkBase: Story = {
 		required: false,
 		infoText: 'Some tips',
 		iconBefore: <SearchIcon />,
-		iconAfterSecond: <ShortKeyIcon />,
 		darkTheme: true,
 	},
 	parameters: {
@@ -93,7 +90,7 @@ export const DarkLargeError: Story = {
 		infoText: 'Some tips',
 		size: InputSize.LARGE,
 		iconBefore: <SearchIcon />,
-		iconAfterSecond: <ShortKeyIcon />,
+		iconAfter: <HelpIcon />,
 		darkTheme: true,
 		isError: true
 	},
@@ -115,6 +112,7 @@ export const DarkSmallDisabled: Story = {
 		label: 'Check',
 		infoText: 'Some tips',
 		size: InputSize.EXTRA_SMALL,
+		iconAfter: <HelpIcon />,
 		darkTheme: true,
 		disabled: true
 	},

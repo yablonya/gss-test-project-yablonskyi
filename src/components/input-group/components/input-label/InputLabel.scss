@@ -1,4 +1,4 @@
-@import "../src/styles/partials/theme";
+@import "src/styles/partials/theme";
 
 .inputLabel {
   display: flex;
@@ -9,17 +9,17 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
-    color: $gray-25;
+    color: var(--text-primary);
   }
 
   .asterisk {
-    color: $error-red;
+    color: var(--error-red);
   }
 
   div svg {
     width: 12px;
     height: 12px;
-    color: $gray-300;
+    color: var(--text-quinary);
     cursor: pointer;
   }
 }
@@ -38,23 +38,5 @@
 }
 
 .inputLabelDisabled p {
-  color: $gray-200;
-}
-
-.inputLabelDark {
-  p {
-    color: $gray-600;
-  }
-
-  .asterisk {
-    color: $error-red-dark;
-  }
-
-  div svg {
-    color: $gray-200;
-  }
-
-  &.inputLabelDisabled p {
-    color: $gray-300;
-  }
+  color: var(--text-tertiary);
 }

@@ -33,11 +33,11 @@ const InputLabel: FC<InputLabelProps> = (
 	});
 	
 	return (
-		<label className={className}>
+		<div className={className}>
 			<p className='labelText'>{label}</p>
 			{!disabled && required && <p className='asterisk'>*</p>}
 			{prepInfoText && <div title={prepInfoText}><InfoIcon/></div>}
-		</label>
+		</div>
 	);
 };
 

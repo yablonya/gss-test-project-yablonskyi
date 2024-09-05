@@ -1,42 +1,30 @@
-@import "../src/styles/partials/theme";
+@import "src/styles/partials/theme";
 
 .inputText {
-  position: relative;
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   min-width: 120px;
+  background-color: var(--background);
+  border: 1px solid $gray-400;
+  border-radius: 4px;
+  box-shadow: 0 0 0 0 $active-shadow;
+  transition: box-shadow 0.1s ease;
+  padding: 8px 12px;
 
   input {
-    border-radius: 4px;
     width: 100%;
-    border: 1px solid $gray-400;
-    padding: 8px 12px;
+    border: none;
     outline: none;
-    box-shadow: 0 0 0 0 $active-shadow;
-    transition: box-shadow 0.1s ease;
     font-size: 12px;
     line-height: 20px;
-    color: $gray-25;
+    color: var(--text-primary);
     text-overflow: ellipsis;
-    background-color: $white;
-
-    &:focus {
-      border-color: $active-border;
-      box-shadow: 0 0 0 4px $active-shadow;
-      caret-color: $gray-25;
-    }
+    background-color: transparent;
 
     &::placeholder {
       font-weight: 400;
-    }
-
-    &:disabled {
-      border-color: $gray-400;
-      color: $gray-400;
-      cursor: not-allowed;
-
-      &::placeholder {
-        color: $gray-400;
-      }
     }
 
     &::-webkit-search-cancel-button {
@@ -46,38 +34,28 @@
   }
 
   .iconContainer {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
+    display: flex;
     cursor: pointer;
 
     svg {
       color: $gray-300;
     }
   }
+}
 
-  .iconBefore,
-  .afterIcons {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+.inputText:focus-within {
+  border-color: var(--active-border);
+  box-shadow: 0 0 0 4px $active-shadow;
+}
 
-  .iconBefore {
-    left: 12px;
-  }
+.inputTextLarge {
+  padding: 10px 12px;
+}
 
-  .afterIcons {
-    height: 22px;
-    right: 12px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .iconAfterSecond {
-    padding: 3px;
-    display: flex;
-  }
+.inputTextXLarge {
+  padding: 12px 12px;
 }
 
 .inputTextLarge input,
@@ -86,140 +64,105 @@
   line-height: 24px;
 }
 
-.inputTextXLarge input {
-  padding: 12px;
-}
-
-.inputTextSingleAfterIcon input {
-  padding-right: 40px;
-}
-
-.inputTextDoubleAfterIcon input {
-  padding-right: 62px;
-}
-
 .inputTextXSmall {
-  input {
-    padding: 2px 12px;
-  }
+  padding: 2px 12px;
 
   .iconContainer {
     width: 16px;
     height: 16px;
   }
-
-  .iconBefore,
-  .afterIcons {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .iconAfterSecond {
-    padding: 0;
-    width: 12px;
-    height: 12px;
-  }
 }
 
-.inputTextError input {
+.inputTextError {
   border-color: $error-border;
   box-shadow: 0 0 0 0 $error-shadow;
 
-  &:focus {
+  &:focus-within {
     border-color: $error-border;
     box-shadow: 0 0 0 4px $error-shadow;
   }
-}
 
-.inputTextQuiet input {
-  border: none;
-  box-shadow: none;
-
-  &:focus {
-    border-color: transparent;
-    box-shadow: none;
+  .iconContainer svg {
+    color: $error-red;
   }
 }
 
-.inputTextIconBefore input {
-  padding-left: 40px;
-}
+.inputTextDisabled {
+  border-color: $gray-400;
+  box-shadow: none;
 
-.inputTextXSmall.inputTextIconBefore input {
-  padding-left: 30px;
-}
-
-.inputTextSmall .afterIcons {
-  height: 16px;
-}
-
-.inputTextXSmall.inputTextSingleAfterIcon input {
-  padding-right: 30px;
-}
-
-.inputTextXSmall.inputTextDoubleAfterIcon input {
-  padding-right: 48px;
-}
-
-.inputTextError .iconContainer svg {
-  color: $error-red;
-}
-
-.inputText input:disabled ~ .iconContainer svg,
-input:disabled ~ .afterIcons .iconContainer svg {
-  color: $gray-400;
-}
-
-.inputTextDark {
   input {
-    border-color: $gray-100;
-    color: $gray-600;
-    background-color: $gray-10;
+    color: $gray-400;
 
-    &:focus {
-      border-color: $active-border-dark;
-      caret-color: $gray-600;
+    &::placeholder {
+      color: $gray-400;
     }
   }
 
   .iconContainer svg {
-    color: $gray-300;
-  }
-
-  &.inputTextError input {
-    border-color: $error-border-dark;
-    box-shadow: 0 0 0 0 $error-shadow;
-
-    &:focus {
-      border-color: $error-border-dark;
-      box-shadow: 0 0 0 4px $error-shadow;
-    }
-  }
-
-  &.inputTextError .iconContainer svg {
-    color: $error-red-dark;
-  }
-
-  &.inputTextQuiet input {
-    box-shadow: none;
-
-    &:focus {
-      box-shadow: none;
-    }
-  }
-
-  input:disabled {
-    border-color: $gray-100;
-    color: $gray-50;
-
-    &::placeholder {
-      color: $gray-50;
-    }
-  }
-
-  input:disabled ~ .iconContainer svg,
-  input:disabled ~ .afterIcons .iconContainer svg {
-    color: $gray-200;
+    color: $gray-400;
   }
 }
+
+.inputTextQuiet {
+  border: none;
+  box-shadow: none;
+
+  &:focus-within {
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+//.inputTextDark {
+//  input {
+//    border-color: $gray-100;
+//    color: $gray-600;
+//    background-color: $gray-10;
+//
+//    &:focus {
+//      border-color: $active-border-dark;
+//      caret-color: $gray-600;
+//    }
+//  }
+//
+//  .iconContainer svg {
+//    color: $gray-300;
+//  }
+//
+//  &.inputTextError input {
+//    border-color: $error-border-dark;
+//    box-shadow: 0 0 0 0 $error-shadow;
+//
+//    &:focus {
+//      border-color: $error-border-dark;
+//      box-shadow: 0 0 0 4px $error-shadow;
+//    }
+//  }
+//
+//  &.inputTextError .iconContainer svg {
+//    color: $error-red-dark;
+//  }
+//
+//  &.inputTextQuiet input {
+//    box-shadow: none;
+//
+//    &:focus {
+//      box-shadow: none;
+//    }
+//  }
+//
+//  input:disabled {
+//    border-color: $gray-100;
+//    color: $gray-50;
+//
+//    &::placeholder {
+//      color: $gray-50;
+//    }
+//  }
+//
+//  input:disabled ~ .iconContainer svg,
+//  input:disabled ~ .afterIcons .iconContainer svg {
+//    color: $gray-200;
+//  }
+//}
 

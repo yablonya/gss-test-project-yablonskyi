@@ -1,34 +1,30 @@
 import {ComponentPropsWithoutRef, FC, ReactNode} from 'react';
+import {InputSize} from "../../InputGroup";
+import classNames from "classnames";
 
-import {InputSize, InputStyle, InputType} from "../../InputGroup";
-import classNames from 'classnames';
-
-import './InputText.scss'
-
+import './InputText.scss';
 
 interface InputTextProps extends Omit<ComponentPropsWithoutRef<'input'>, 'size'> {
-	type?: InputType;
 	size?: InputSize;
-	inputStyle?: InputStyle;
+	type?: 'text' | 'password' | 'search';
+	inputStyle?: 'normal' | 'quiet';
 	placeholder?: string;
 	disabled?: boolean;
-	isError?: boolean;
+	showError?: boolean;
 	iconBefore?: ReactNode;
-	iconAfterFirst?: ReactNode;
-	iconAfterSecond?: ReactNode;
+	iconAfter?: ReactNode;
 	darkTheme?: boolean;
 }
 
 const InputText: FC<InputTextProps> = ({
-	type = InputType.DEFAULT,
+	type = 'text',
 	size = InputSize.MEDIUM,
-	inputStyle = InputStyle.NORMAL,
+	inputStyle = 'normal',
 	placeholder = '',
 	disabled = false,
-	isError = false,
+	showError = false,
 	iconBefore = null,
-	iconAfterFirst = null,
-	iconAfterSecond = null,
+	iconAfter = null,
 	darkTheme = false,
 	...rest
 }) => {
@@ -37,24 +33,17 @@ const InputText: FC<InputTextProps> = ({
 		inputTextXSmall: size === InputSize.EXTRA_SMALL,
 		inputTextLarge: size === InputSize.LARGE,
 		inputTextXLarge: size === InputSize.EXTRA_LARGE,
-		inputTextIconBefore: iconBefore,
-		inputTextIconAfterFirst: iconAfterFirst,
-		inputTextIconAfterSecond: iconAfterSecond,
-		inputTextError: isError,
-		inputTextQuiet: inputStyle === InputStyle.QUIET,
-		inputTextSingleAfterIcon: iconAfterFirst && !iconAfterSecond || !iconAfterFirst && iconAfterSecond, // New class for one after icon
-		inputTextDoubleAfterIcon: iconAfterFirst && iconAfterSecond,
+		inputTextDisabled: disabled,
+		inputTextError: showError,
+		inputTextQuiet: inputStyle === 'quiet',
 		inputTextDark: darkTheme
 	});
 
 	return (
 		<div className={className}>
-			<input type={type} placeholder={placeholder} disabled={disabled} {...rest}/>
 			{iconBefore && <div className='iconContainer iconBefore'>{iconBefore}</div>}
-			<div className='afterIcons'>
-				{iconAfterFirst && <div className='iconContainer iconAfterFirst'>{iconAfterFirst}</div>}
-				{iconAfterSecond && <div className='iconContainer iconAfterSecond'>{iconAfterSecond}</div>}
-			</div>
+			<input type={type} placeholder={placeholder} disabled={disabled} {...rest}/>
+			{iconAfter && <div className='iconContainer iconAfterFirst'>{iconAfter}</div>}
 		</div>
 	);
 };

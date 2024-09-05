@@ -15,32 +15,20 @@ export enum InputSize {
 	EXTRA_LARGE = 'extra-large',
 }
 
-export enum InputType {
-	DEFAULT = 'text',
-	PASSWORD = 'password',
-	SEARCH = 'search',
-}
-
-export enum InputStyle {
-	NORMAL = 'normal',
-	QUIET = 'quiet',
-}
-
 interface InputGroupProps extends Omit<ComponentPropsWithoutRef<'input'>, 'size'> {
 	label?: string,
 	required?: boolean;
 	infoText?: string;
 	size?: InputSize;
-	type?: InputType;
-	inputStyle?: InputStyle;
+	type?: 'text' | 'password' | 'search';
+	inputStyle?: 'normal' | 'quiet';
 	placeholder?: string;
 	disabled?: boolean;
-	isError?: boolean;
+	showError?: boolean;
 	helpText?: string;
 	sideLabel?: boolean;
 	iconBefore?: ReactNode;
-	iconAfterFirst?: ReactNode;
-	iconAfterSecond?: ReactNode;
+	iconAfter?: ReactNode;
 	darkTheme?: boolean;
 }
 
@@ -50,20 +38,24 @@ const InputGroup: FC<InputGroupProps> = (
 		required = false,
 		infoText = '',
 		size = InputSize.MEDIUM,
-		type = InputType.DEFAULT,
-		inputStyle = InputStyle.NORMAL,
+		type = 'text' as 'text' | 'password' | 'search',
+		inputStyle = 'normal' as 'normal' | 'quiet',
 		placeholder = '',
 		disabled = false,
-		isError = false,
+		showError = false,
 		helpText= '',
 		sideLabel = false,
 		iconBefore = null,
-		iconAfterFirst = null,
-		iconAfterSecond = null,
+		iconAfter = null,
 		darkTheme = false,
 		...rest
 	}) => {
 	const className = classNames('inputGroup', { inputGroupSideLabel: sideLabel });
+	if (darkTheme) {
+		document.body.classList.add('darkTheme');
+	} else {
+		document.body.classList.remove('darkTheme');
+	}
 	
 	return (
 		<div className={className}>
@@ -81,10 +73,9 @@ const InputGroup: FC<InputGroupProps> = (
 				inputStyle={inputStyle}
 				placeholder={placeholder}
 				disabled={disabled}
-				isError={isError}
+				showError={showError}
 				iconBefore={iconBefore}
-				iconAfterFirst={iconAfterFirst}
-				iconAfterSecond={iconAfterSecond}
+				iconAfter={iconAfter}
 				darkTheme={darkTheme}
 				{...rest}
 			/>
@@ -93,7 +84,7 @@ const InputGroup: FC<InputGroupProps> = (
           helpText={helpText}
           size={size}
           disabled={disabled}
-          isError={isError}
+          showError={showError}
           darkTheme={darkTheme}
         />
 			}
