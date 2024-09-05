@@ -3,7 +3,6 @@ import {InputSize} from "../../InputGroup";
 import InputText from "./InputText";
 import SearchIcon from "../../../icons/SearchIcon";
 import HelpIcon from "../../../icons/HelpIcon";
-import ShortKeyIcon from "../../../icons/ShortKeyIcon";
 
 const meta: Meta<typeof InputText> = {
 	title: 'Components/InputText',
@@ -37,7 +36,7 @@ export const LargeErrorPassword: Story = {
 		size: InputSize.LARGE,
 		type: 'password',
 		placeholder: 'Enter text...',
-		isError: true
+		showError: true
 	},
 }
 
@@ -59,7 +58,7 @@ export const IconBefore: Story = {
 export const IconAfterFirst: Story = {
 	args: {
 		placeholder: 'Enter text...',
-		iconAfterFirst: <HelpIcon />,
+		iconAfter: <HelpIcon />,
 	},
 }
 

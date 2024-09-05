@@ -16,12 +16,11 @@ const App = () => {
 				placeholder={'Enter text..'}
 				size={InputSize.EXTRA_LARGE}
 				iconBefore={<SearchIcon/>}
-				iconAfterFirst={<SearchIcon/>}
-				iconAfterSecond={<SearchIcon/>}
+				iconAfter={<SearchIcon/>}
 				value={inputValue}
 				onChange={handleChange}
 				disabled={true}
-				isError={true}
+				showError={true}
 				infoText={'Text'}
 				sideLabel={true}
 				helpText={'Skocndfj vuh uhfduhijsi8u88j8 er8 fje'}

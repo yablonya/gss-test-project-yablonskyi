@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import InputGroup, {InputSize} from './InputGroup';
 import HelpIcon from "../icons/HelpIcon";
-import ShortKeyIcon from '../icons/ShortKeyIcon';
 import SearchIcon from '../icons/SearchIcon';
 
 const meta: Meta<typeof  InputGroup> = {
@@ -44,7 +43,7 @@ export const Large: Story = {
 		required: true,
 		type: 'password',
 		infoText: '',
-		isError: true,
+		showError: true,
 		size: InputSize.LARGE,
 		iconBefore: <SearchIcon />,
 		iconAfter: <HelpIcon />,
@@ -92,7 +91,7 @@ export const DarkLargeError: Story = {
 		iconBefore: <SearchIcon />,
 		iconAfter: <HelpIcon />,
 		darkTheme: true,
-		isError: true
+		showError: true
 	},
 	parameters: {
 		backgrounds: {
